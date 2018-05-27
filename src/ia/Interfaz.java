@@ -6,12 +6,13 @@
 package ia;
 
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Octavio
  */
 public class Interfaz extends javax.swing.JFrame {
-
+     int pertenencia;
     /**
      * Creates new form Interfaz
      */
@@ -29,26 +30,26 @@ public class Interfaz extends javax.swing.JFrame {
     }
     
     public int getSexo(){
-        return cmbSexo.getSelectedIndex();
+        return (cmbSexo.getSelectedIndex() +1);
     }
     
     public int getAlojamiento(){
         return Integer.parseInt(txtAlojamiento.getText());
     }
     
-    public int getTrasnporte(){
-        int pertenencia = 0;
-        if(cmbTransporte.getSelectedItem() == "avion"){
-            pertenencia = 1;
+    public int getTransporte(){
+        
+        if(cmbTransporte.getSelectedItem().equals("Avion")){
+            pertenencia = 2;
           
         }
-        if(cmbTransporte.getSelectedItem() == "omnibus"){
+        if(cmbTransporte.getSelectedItem() == "Omnibus"){
             pertenencia = 6;
         }
-        if(cmbTransporte.getSelectedItem() == "tren"){
+        if(cmbTransporte.getSelectedItem() == "Tren"){
             pertenencia = 12;
         }
-        if(cmbTransporte.getSelectedItem() == "barco"){
+        if(cmbTransporte.getSelectedItem() == "Barco"){
             pertenencia = 18;
         
          } 
@@ -215,8 +216,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        
+        IA.tipoPersona(this);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

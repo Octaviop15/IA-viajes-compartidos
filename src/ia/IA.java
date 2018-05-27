@@ -10,6 +10,8 @@ import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
 import net.sourceforge.jFuzzyLogic.rule.Rule;
 import net.sourceforge.jFuzzyLogic.rule.Variable;
+import org.antlr.works.editor.completion.AutoCompletionMenu;
+
 
 
 
@@ -17,24 +19,50 @@ import net.sourceforge.jFuzzyLogic.rule.Variable;
 
 
 public class IA {
-
+ 
    
-    public static void main(String[] args) {
+   
+   
+    public IA(){
         
-        //carga de archivo
+         
+    }
+       
+      
+         
+    public static void main(String[] args) {
+               
+        Interfaz interfaz = new Interfaz();
+        interfaz.setVisible(true);
+     
+       
+          
+       
+      
+         
+
+       
+
+  
+    }
+    
+    
+  
+    
+    public static void tipoPersona(Interfaz interfaz){
+        
+            //carga de archivo
         String fileName = "C:\\Users\\Octavio\\Desktop\\Nueva carpeta\\avip.fcl";
         FIS fis = FIS.load(fileName,true);
-
+        
         // Error while loading?
-        if( fis == null ) { 
+         if( fis == null ) { 
             System.err.println("Can't load file: '" + fileName + "'");
             return;
         }
         
-        Interfaz interfaz = new Interfaz();
-        interfaz.setVisible(true);
-       
-       // para que muestre las graficas
+        
+         // para que muestre las graficas
         Variable edad = fis.getVariable("edad");
         Variable habito = fis.getVariable("habito");
         Variable tamaño = fis.getVariable("tamano");
@@ -42,29 +70,29 @@ public class IA {
         Variable transporte = fis.getVariable("transporte");
         Variable sexo = fis.getVariable("sexo");
         JFuzzyChart.get().chart(fis.getFunctionBlock("avip"));
-         
-
+    
       
- 
-
-       // Set inputs
-        fis.setVariable("transporte", interfaz.getTrasnporte());
+        fis.setVariable("transporte", interfaz.getTransporte());
         fis.setVariable("edad", interfaz.getEdad());
         fis.setVariable("sexo",interfaz.getSexo());
         fis.setVariable("tamano", interfaz.getCantPersonas());
         fis.setVariable("alojamiento", interfaz.getAlojamiento());
-
-        // Evaluate
-        fis.evaluate();
-
-       
+        
      
-
-        // Show output variable
-       
+        fis.evaluate(); 
+        
+        //salida
+        
         Variable coincidencia =  fis.getVariable("coincidencia");
         JFuzzyChart.get().chart(coincidencia, coincidencia.getDefuzzifier(), true);
-        System.out.println("Output value:" + fis.getVariable("coincidencia").getValue()); 
+        System.out.println("Output value:" + fis.getVariable("coincidencia").getValue());
+        
+      
+        
+        
+        
+        
+        
     }
         
     
