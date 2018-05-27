@@ -49,13 +49,13 @@ public class Interfaz extends javax.swing.JFrame {
             transporte= 2;
           
         }
-        if(cmbTransporte.getSelectedItem() == "Omnibus"){
+        if(cmbTransporte.getSelectedItem().equals("Omnibus")){
             transporte = 6;
         }
-        if(cmbTransporte.getSelectedItem() == "Tren"){
+        if(cmbTransporte.getSelectedItem().equals( "Tren")){
             transporte = 12;
         }
-        if(cmbTransporte.getSelectedItem() == "Barco"){
+        if(cmbTransporte.getSelectedItem().equals("Barco")){
             transporte = 18;
         
          } 
