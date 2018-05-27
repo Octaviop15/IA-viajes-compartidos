@@ -12,10 +12,9 @@ import javax.swing.JOptionPane;
  * @author Octavio
  */
 public class Interfaz extends javax.swing.JFrame {
-     int pertenencia;
-    /**
-     * Creates new form Interfaz
-     */
+     int transporte;
+     int sexo;
+    
     public Interfaz() {
         initComponents();
         
@@ -30,8 +29,15 @@ public class Interfaz extends javax.swing.JFrame {
     }
     
     public int getSexo(){
-        return (cmbSexo.getSelectedIndex() +1);
+        if(cmbSexo.getSelectedItem().equals("Masculino")){
+        sexo = 2;
     }
+        if(cmbSexo.getSelectedItem().equals("Femenino")){
+           sexo = 5;
+        }
+        return sexo;
+    }
+    
     
     public int getAlojamiento(){
         return Integer.parseInt(txtAlojamiento.getText());
@@ -40,22 +46,23 @@ public class Interfaz extends javax.swing.JFrame {
     public int getTransporte(){
         
         if(cmbTransporte.getSelectedItem().equals("Avion")){
-            pertenencia = 2;
+            transporte= 2;
           
         }
         if(cmbTransporte.getSelectedItem() == "Omnibus"){
-            pertenencia = 6;
+            transporte = 6;
         }
         if(cmbTransporte.getSelectedItem() == "Tren"){
-            pertenencia = 12;
+            transporte = 12;
         }
         if(cmbTransporte.getSelectedItem() == "Barco"){
-            pertenencia = 18;
+            transporte = 18;
         
          } 
-        return pertenencia;
+        return transporte;
         
     }
+
             
             
     
